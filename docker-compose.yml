@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  rungroupwebapp1:
+    image: ${DOCKER_REGISTRY-}rungroupwebapp1
+    build:
+      context: .
+      dockerfile: RunGroupWebApp1/Dockerfile
