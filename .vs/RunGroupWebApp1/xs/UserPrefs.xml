@@ -1,11 +1,9 @@
-﻿<Properties StartupConfiguration="{8B43A9E5-AF95-4A49-A537-38355FC7FE91}|Default">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{8B43A9E5-AF95-4A49-A537-38355FC7FE91}|Default">
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.RunGroupWebApp1 PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.Workbench ActiveDocument="RunGroupWebApp1/Views/Race/Index.cshtml">
     <Files>
       <File FileName="RunGroupWebApp1/Controllers/UserController.cs" Line="51" Column="55" />
