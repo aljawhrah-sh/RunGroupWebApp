@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using RunGroupWebApp1.Interface;
 using RunGroupWebApp1.Models;
@@ -46,6 +47,7 @@ namespace RunGroupWebApp1.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateClubViewModel clubVM)
         {
+            
 
             if (ModelState.IsValid)
             {
@@ -57,6 +59,7 @@ namespace RunGroupWebApp1.Controllers
                     Description = clubVM.Description,
                     Image = result.Url.ToString(),
                     AppUserId =clubVM.AppUserId,
+                    creationDate = DateTime.Now,
                     Address = new Address
                     {
                         State = clubVM.Address.State,
@@ -79,7 +82,12 @@ namespace RunGroupWebApp1.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var club = await _clubReposiroty.GetByIdAsync(id);
-            if (club == null) return View("Error");
+            if (club == null) {
+            return View("error", new ErrorViewModel { });
+            }
+            
+             //creating a vm object from a Club instance
+             // we can use automapper here.
             var clubVM = new EditClubViewModel
             {
                 Title = club.Title,
@@ -87,7 +95,7 @@ namespace RunGroupWebApp1.Controllers
                 AddressId = club.AddressId,
                 Address = club.Address,
                 URL = club.Image,
-                ClubCategory = club.ClubCategory
+                ClubCategory = club.ClubCategory,
             };
             return View(clubVM);
         }
@@ -117,8 +125,8 @@ namespace RunGroupWebApp1.Controllers
                     Title = clubVM.Title,
                     Description = clubVM.Description,
                     AddressId = clubVM.AddressId,
-                    Address = clubVM.Address
-
+                    Address = clubVM.Address,
+                    LastUpdateDate = DateTime.Now
                 };
                 _clubReposiroty.update(club);
                 return RedirectToAction("Index");

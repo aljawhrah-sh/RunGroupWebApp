@@ -25,6 +25,8 @@ namespace RunGroupWebApp1.Models
         [ForeignKey("AppUser")]
         public string? AppUserId { get; set; }
         public AppUser? AppUser { get; set; }
+        public DateTime? creationDate { get; set; }
+        public DateTime? LastUpdateDate { get; set; }
     }
 }
 

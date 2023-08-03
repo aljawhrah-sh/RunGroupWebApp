@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RunGroupWebApp1.Data;
 
@@ -11,9 +12,10 @@ using RunGroupWebApp1.Data;
 namespace RunGroupWebApp1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230730142057_MakeDatesNullable")]
+    partial class MakeDatesNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -347,9 +349,6 @@ namespace RunGroupWebApp1.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("LastUpdateDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("RaceCategory")
                         .HasColumnType("int");
 
@@ -365,9 +364,6 @@ namespace RunGroupWebApp1.Migrations
 
                     b.Property<string>("Website")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("creationDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -470,7 +466,7 @@ namespace RunGroupWebApp1.Migrations
                         .IsRequired();
 
                     b.HasOne("RunGroupWebApp1.Models.AppUser", "AppUser")
-                        .WithMany("Races")
+                        .WithMany("MyProperty")
                         .HasForeignKey("AppUserId");
 
                     b.HasOne("RunGroupWebApp1.Models.Club", null)
@@ -486,7 +482,7 @@ namespace RunGroupWebApp1.Migrations
                 {
                     b.Navigation("Clubs");
 
-                    b.Navigation("Races");
+                    b.Navigation("MyProperty");
                 });
 
             modelBuilder.Entity("RunGroupWebApp1.Models.Club", b =>

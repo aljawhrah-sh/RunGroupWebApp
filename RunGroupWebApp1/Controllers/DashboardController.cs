@@ -93,6 +93,7 @@ namespace RunGroupWebApp1.Controllers
                 var photoResult = await _photoServices.AddPhotoAsync(editVM.Image);
 
                 MapUserEdit(user, editVM, photoResult);
+
                 _dashboardRepository.Update(user);
                 return RedirectToAction("Index");
 

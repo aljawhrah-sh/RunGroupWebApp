@@ -22,9 +22,9 @@
                                     @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
                                     {
                                         <div>
-                                            <a type="button" class="btn btn-sm btn-outline-info" asp-controller="Club" asp-action="Edit">Edit</a>
+                                            <a type="button" class="btn btn-sm btn-outline-info" asp-controller="Club" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
 
-                                            <a type="button" class="btn btn-sm btn-outline-danger" asp-controller="Club" asp-action="Delete">Delete</a>
+                                            <a type="button" class="btn btn-sm btn-outline-danger" asp-controller="Club" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
 
                                         </div>
                                     }

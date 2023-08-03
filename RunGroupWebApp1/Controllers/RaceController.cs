@@ -58,6 +58,7 @@ namespace RunGroupWebApp1.Controllers
                     Description = raceVM.Description,
                     Image = result.Url.ToString(),
                     AppUserId = raceVM.AppUserId,
+                    creationDate=DateTime.Now,
                     Address = new Address
                     {
                         City = raceVM.Address.City,
@@ -87,7 +88,8 @@ namespace RunGroupWebApp1.Controllers
                 AddressId = race.AddressId,
                 Address = race.Address,
                 URL = race.Image,
-                RaceCategory = race.RaceCategory
+                RaceCategory = race.RaceCategory,
+                
             };
             return View(raceVM);
         }
@@ -118,7 +120,9 @@ namespace RunGroupWebApp1.Controllers
                     Title = raceVM.Title,
                     Description = raceVM.Description,
                     AddressId = raceVM.AddressId,
+                    creationDate =DateTime.Now,
                     Address = raceVM.Address
+
                 };
                 _raceRepository.update(race);
                 return RedirectToAction("Index");

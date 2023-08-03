@@ -27,6 +27,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddIdentity<AppUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddMemoryCache();
+//cookie authentication
 builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -50,7 +51,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+//CHECK IF ENTERED INFO IS CORRECT
 app.UseAuthentication();
+//CHECK IF USER IS AUTHARIZED OR NOT
 app.UseAuthorization();
 
 app.MapControllerRoute(

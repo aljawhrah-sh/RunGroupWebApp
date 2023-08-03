@@ -23,8 +23,8 @@ namespace RunGroupWebApp1.Models
         public AppUser? AppUser { get; set; }
         public ICollection<Club> Clubs { get; set; }
         public ICollection<Race> Races { get; set; }
-        // tset 123
-
+        public DateTime? creationDate { get; set; }
+        public DateTime? LastUpdateDate { get; set; }
 
     }
 }
